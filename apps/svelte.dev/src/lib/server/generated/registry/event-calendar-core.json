@@ -6,11 +6,11 @@
     "vkurko"
   ],
   "homepage": "https://vkurko.github.io/calendar/",
-  "version": "5.4.0",
-  "downloads": 13126,
-  "github_stars": 2116,
-  "updated": "2026-02-12T14:40:23.093Z",
-  "svelte_range": "^5.50.1",
+  "version": "5.4.1",
+  "downloads": 13710,
+  "github_stars": 2126,
+  "updated": "2026-02-23T09:02:15.763Z",
+  "svelte_range": "^5.53.2",
   "typescript": false,
   "runes": false,
   "last_rune_check_version": "3.12.0"

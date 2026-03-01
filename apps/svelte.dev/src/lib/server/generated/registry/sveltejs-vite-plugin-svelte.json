@@ -5,13 +5,12 @@
   "authors": [
     "rich_harris",
     "svelte-admin",
-    "conduitry",
-    "dominik_g"
+    "conduitry"
   ],
   "homepage": "https://github.com/sveltejs/vite-plugin-svelte#readme",
   "version": "6.2.4",
-  "downloads": 1308370,
-  "github_stars": 1000,
+  "downloads": 1494026,
+  "github_stars": 1003,
   "updated": "2026-01-09T19:02:07.800Z",
   "svelte_range": "^5.0.0",
   "typescript": true,
