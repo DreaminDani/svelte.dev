@@ -5,14 +5,13 @@
   "authors": [
     "rich_harris",
     "svelte-admin",
-    "conduitry",
-    "dominik_g"
+    "conduitry"
   ],
   "homepage": "https://svelte.dev/docs/kit/images#sveltejs-enhanced-img",
-  "version": "0.10.2",
-  "downloads": 34662,
-  "github_stars": 20282,
-  "updated": "2026-02-12T22:31:33.157Z",
+  "version": "0.10.3",
+  "downloads": 35947,
+  "github_stars": 20314,
+  "updated": "2026-02-20T17:24:50.930Z",
   "svelte_range": "^5.0.0",
   "typescript": true,
   "runes": false,
