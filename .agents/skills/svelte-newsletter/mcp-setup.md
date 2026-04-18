@@ -1,8 +1,49 @@
 # MCP Server Setup Guide
 
-This guide explains how to set up optional MCP servers for Reddit and Discord integration.
-These are not required — the skill works with fallback approaches — but they provide a
-smoother experience.
+This guide explains how to set up MCP servers for GitHub, Reddit, and Discord integration.
+
+## GitHub: github-mcp-server
+
+The GitHub MCP server is **built into Copilot CLI** — no setup needed if you're using it there.
+
+If you're using a different agent (Claude Code, Cursor, OpenCode, etc.), add the official
+GitHub MCP server:
+
+```json
+{
+	"mcpServers": {
+		"github": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-github"],
+			"env": {
+				"GITHUB_PERSONAL_ACCESS_TOKEN": "your_github_pat_here"
+			}
+		}
+	}
+}
+```
+
+Create a personal access token at https://github.com/settings/tokens with `repo` (read)
+scope. This enables `get_file_contents`, `list_commits`, `search_code`, and other tools
+used to fetch CHANGELOGs and PRs.
+
+**Fallback (no MCP):** Fetch CHANGELOGs directly via curl or web_fetch:
+
+```bash
+# Svelte CHANGELOG
+curl -s https://raw.githubusercontent.com/sveltejs/svelte/main/packages/svelte/CHANGELOG.md
+
+# SvelteKit CHANGELOG
+curl -s https://raw.githubusercontent.com/sveltejs/kit/main/packages/kit/CHANGELOG.md
+
+# Browse releases pages
+# https://github.com/sveltejs/svelte/releases
+# https://github.com/sveltejs/cli/releases
+# https://github.com/sveltejs/language-tools/releases
+# https://github.com/sveltejs/ai-tools/releases
+```
+
+---
 
 ## Reddit: reddit-mcp-buddy
 

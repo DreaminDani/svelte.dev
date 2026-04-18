@@ -48,8 +48,14 @@ confirm the last published newsletter date and avoid overlap.
 
 For each repository listed in `repositories.md`:
 
-1. **Fetch the CHANGELOG** — Use the GitHub MCP server's `get_file_contents` tool or browse
-   the repository's releases page to find entries within the date range.
+1. **Fetch the CHANGELOG** — If using Copilot CLI, the GitHub MCP server is built in — use
+   its `get_file_contents` tool. If using another agent or tool, see `mcp-setup.md` for how
+   to add the GitHub MCP server, or fall back to fetching CHANGELOGs directly via the GitHub
+   REST API or `curl`:
+   ```
+   curl -s https://raw.githubusercontent.com/sveltejs/svelte/main/packages/svelte/CHANGELOG.md
+   ```
+   You can also browse the releases page on GitHub (e.g., https://github.com/sveltejs/svelte/releases).
 2. **Filter for features** — Only include entries with a `feat:` prefix in the conventional
    commits. Skip `fix:`, `chore:`, `refactor:`, etc. unless they represent a notable breaking
    change or significant behavioral improvement that users should know about.
