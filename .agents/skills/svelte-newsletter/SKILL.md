@@ -125,8 +125,6 @@ If the Discord MCP is configured (see `mcp-setup.md`), read messages from:
 - `#site-showcase` — Apps & Sites (sometimes Libraries)
 - `#library-announcements` — Libraries, Tools & Components
 - `#resources` — Learning Resources (blog posts, videos)
-- `#svelte-ambassadors` — To get the current list of Svelte ambassadors for the "Featuring"
-  section (see `showcase-guide.md` for a historical fallback list)
 
 If Discord MCP is not available, ask the user to paste content from these channels or provide
 a text file with the messages.

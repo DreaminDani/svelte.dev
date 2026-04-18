@@ -49,10 +49,8 @@ main link.
 Content authored by or prominently featuring Svelte contributors and ambassadors goes in
 this section.
 
-**How to identify ambassadors:** If Discord MCP is configured, read the `#svelte-ambassadors`
-channel to get the current list of active ambassadors. Otherwise, use the historical list
-below — it is based on people who have consistently appeared in this section across past
-newsletters.
+**How to identify ambassadors:** Use the list below — it is based on people who have
+consistently appeared in this section across past newsletters.
 
 | Name                   | Also known as        | Role                                   |
 | ---------------------- | -------------------- | -------------------------------------- |
