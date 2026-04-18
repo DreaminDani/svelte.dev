@@ -34,9 +34,12 @@ See `mcp-setup.md` for optional Reddit/Discord MCP server setup.
 
 ### Phase 1: Determine the date range
 
-Ask the user what month/year the newsletter is for. The date range is typically the 1st of the
-previous month through the end of that month. For example, the "May 2026" newsletter covers
-changes from April 1 – April 30, 2026.
+Ask the user what month/year the newsletter is for. The date range starts on the 1st of the
+previous month and runs through today (or the end of that month if it has already passed).
+
+It is completely normal to draft the newsletter mid-month. For example, on April 18th you would
+draft the "May 2026" newsletter covering April 1 – April 18. The remaining days can be added
+later before publishing on May 1st.
 
 Check `apps/svelte.dev/content/blog/` for the most recent `whats-new-in-svelte-*.md` file to
 confirm the last published newsletter date and avoid overlap.
