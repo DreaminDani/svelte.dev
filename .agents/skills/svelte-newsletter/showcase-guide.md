@@ -176,7 +176,7 @@ Use groupings that make sense for the current month's content. Don't force categ
 
 ### Discord (Svelte server)
 
-- **#community-showcase** → mostly Apps & Sites
+- **#site-showcase** → mostly Apps & Sites
 - **#library-announcements** → Libraries, Tools & Components
 - **#resources** → Learning Resources
 - Look for posts with reactions/engagement as a quality signal

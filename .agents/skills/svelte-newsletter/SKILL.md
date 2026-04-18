@@ -122,7 +122,7 @@ Filter to posts with **20+ upvotes**. Categorize each post as:
 
 If the Discord MCP is configured (see `mcp-setup.md`), read messages from:
 
-- `#community-showcase` — Apps & Sites (sometimes Libraries)
+- `#site-showcase` — Apps & Sites (sometimes Libraries)
 - `#library-announcements` — Libraries, Tools & Components
 - `#resources` — Learning Resources (blog posts, videos)
 - `#svelte-ambassadors` — To get the current list of Svelte ambassadors for the "Featuring"
