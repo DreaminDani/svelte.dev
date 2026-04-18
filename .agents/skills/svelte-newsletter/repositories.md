@@ -74,4 +74,6 @@ These are checked less frequently but should be included when they have notable 
 4. Also look for entries marked as "BREAKING" or containing breaking changes
 5. Skip `fix:`, `chore:`, `refactor:`, `perf:`, `docs:` unless they represent a significant
    user-facing change worth highlighting
-6. For the `kit` repo, check ALL packages under `packages/` — adapters often have features too
+6. **For the `kit` repo, check ALL packages under `packages/`** — this is critical. Adapter
+   changes (node, vercel, netlify, cloudflare, etc.) are just as important as core SvelteKit
+   changes. Each adapter has its own CHANGELOG.md. Don't just check `packages/kit/CHANGELOG.md`.
