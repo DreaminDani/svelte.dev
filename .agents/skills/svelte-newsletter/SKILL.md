@@ -27,6 +27,7 @@ The newsletter has two major halves:
 See `newsletter-structure.md` for the exact output format.
 See `repositories.md` for the list of repos and where to find their CHANGELOGs.
 See `showcase-guide.md` for curation criteria and sourcing instructions.
+See `voice-and-tone.md` for writing style, word choices, and anti-AI-ism rules.
 See `mcp-setup.md` for optional Reddit/Discord MCP server setup.
 
 ---
@@ -173,6 +174,8 @@ Not all sub-sections need to appear every month — only include ones with conte
 ### Phase 5: Assemble the newsletter draft
 
 Using the template in `newsletter-structure.md`, assemble the full newsletter draft.
+**Read `voice-and-tone.md` before writing any copy.** Match Dani's voice — casual, direct,
+no corporate speak or AI-isms. When in doubt, check the previous newsletters for precedent.
 The output should be a complete markdown file ready to save as:
 
 ```
@@ -189,3 +192,4 @@ Before presenting the draft:
 4. Check that version numbers are accurate
 5. Confirm the date in the filename and frontmatter matches the target month
 6. Review against the most recent 2-3 newsletters for tone and style consistency
+7. Check all copy against `voice-and-tone.md` — no AI-isms, no corporate speak, active voice
