@@ -83,8 +83,8 @@ For a full list of changes - including all the important bugfixes that went into
 ```markdown
 ### Apps & Sites built with Svelte
 
-- [App Name](https://url) is a short description of the app
-- [App Name](https://url) is a short description ([Reddit](url) or [GitHub](url))
+- [App Name](https://deployed-url.com) is a short description ([GitHub](https://github.com/...))
+- [App Name](https://github.com/user/repo) is a short description when no deployed URL exists
 ```
 
 #### Learning Resources
