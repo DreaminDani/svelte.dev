@@ -9,8 +9,8 @@ source content.
 
 - Deployed, working applications or websites built with Svelte/SvelteKit
 - Must be accessible via a public URL (or have a compelling demo/video)
-- Open source projects are great but not required — link to GitHub when available
-- Games, tools, platforms, SaaS products, creative projects, portfolios — all welcome
+- Open source projects are great but not required - link to GitHub when available
+- Games, tools, platforms, SaaS products, creative projects, portfolios - all welcome
 - Personal sites are fine if they have something visually or technically interesting
 
 ### What does NOT qualify
@@ -36,7 +36,7 @@ main link.
 - Present tense: "is", "lets you", "provides", "helps"
 - Focus on what the app DOES, not how it's built
 - One sentence, concise but descriptive
-- Don't start every description with "A" — vary the sentence structure
+- Don't start every description with "A" - vary the sentence structure
 
 ---
 
@@ -49,7 +49,7 @@ main link.
 Content authored by or prominently featuring Svelte contributors and ambassadors goes in
 this section.
 
-**How to identify ambassadors:** Use the list below — it is based on people who have
+**How to identify ambassadors:** Use the list below - it is based on people who have
 consistently appeared in this section across past newsletters.
 
 | Name                   | Also known as        | Role                                   |
@@ -82,7 +82,7 @@ user to confirm.
 Always present. YouTube show on the Svelte Society channel. Format:
 
 ```markdown
-- [Ep. 132](https://www.youtube.com/watch?v=VIDEO_ID) — Topic or "Changelog"
+- [Ep. 132](https://www.youtube.com/watch?v=VIDEO_ID) - Topic or "Changelog"
 ```
 
 #### _Svelte Radio_
@@ -178,10 +178,10 @@ Use groupings that make sense for the current month's content. Don't force categ
 - **#library-announcements** → Libraries, Tools & Components
 - **#resources** → Learning Resources
 - Look for posts with reactions/engagement as a quality signal
-- Some overlap with Reddit is expected — deduplicate
+- Some overlap with Reddit is expected - deduplicate
 
 ### YouTube / Podcasts
 
-- **Svelte Society** YouTube channel — This Week in Svelte episodes, meetup recordings
-- **Svelte Radio** at svelteradio.com — podcast episodes
+- **Svelte Society** YouTube channel - This Week in Svelte episodes, meetup recordings
+- **Svelte Radio** at svelteradio.com - podcast episodes
 - Check for Svelte conference talks if a conference happened that month

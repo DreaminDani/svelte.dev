@@ -38,22 +38,22 @@ milestones. End with a transition like "Let's dive in!" or "So let's have a look
 The changelog section can be **one combined section or multiple separate sections** depending
 on how many features there are. The groupings are:
 
-1. **Svelte** — the compiler and runtime (`sveltejs/svelte`)
-2. **SvelteKit** — SvelteKit core + all adapters (`sveltejs/kit` — includes adapter-node,
+1. **Svelte** - the compiler and runtime (`sveltejs/svelte`)
+2. **SvelteKit** - SvelteKit core + all adapters (`sveltejs/kit` - includes adapter-node,
    adapter-vercel, adapter-netlify, adapter-cloudflare, etc.)
-3. **Language Tools, Ecosystem & CLI** — language server, sv CLI, ai-tools, vite-plugin-svelte
+3. **Language Tools, Ecosystem & CLI** - language server, sv CLI, ai-tools, vite-plugin-svelte
 
 **When to combine vs separate:**
 
 - If there are only a few changes total (fewer than ~3-4 per group), combine everything into
   one section: `## What's new in Svelte and SvelteKit`
 - If any one group has 3-4+ changes, split into separate sections:
-  - `## What's new in Svelte`
-  - `## What's new in SvelteKit`
-  - (Language tools/CLI items can be grouped with SvelteKit or get their own header like
-    `## What's new in SvelteKit, Svelte CLI and Language Tools`)
+- `## What's new in Svelte`
+- `## What's new in SvelteKit`
+- (Language tools/CLI items can be grouped with SvelteKit or get their own header like
+  `## What's new in SvelteKit, Svelte CLI and Language Tools`)
 
-**Important for SvelteKit:** Check ALL packages under `packages/` in the kit repo — not just
+**Important for SvelteKit:** Check ALL packages under `packages/` in the kit repo - not just
 `packages/kit/CHANGELOG.md`. Adapter changes (node, vercel, netlify, cloudflare, etc.) are
 grouped with SvelteKit, not in a separate section.
 
@@ -65,9 +65,9 @@ Each feature is a bullet point:
 
 #### Formatting rules
 
-- **Version**: Bold with package name — `**svelte@5.54.0**`, `**kit@2.54.0**`, `**sv@0.12.6**`
-- **Docs link**: Only when a relevant svelte.dev docs page exists — `[Docs](url)`
-- **PR link**: Always include — `[#17951](https://github.com/sveltejs/svelte/pull/17951)`
+- **Version**: Bold with package name - `**svelte@5.54.0**`, `**kit@2.54.0**`, `**sv@0.12.6**`
+- **Docs link**: Only when a relevant svelte.dev docs page exists - `[Docs](url)`
+- **PR link**: Always include - `[#17951](https://github.com/sveltejs/svelte/pull/17951)`
 - Multiple links can appear: `[Docs](url), [#PR](url)`
 - For adapter-specific changes, prefix with the adapter name: `Node:`, `Vercel:`, `Netlify:`
 - For Svelte CLI changes, use `**sv@version**`
@@ -115,8 +115,8 @@ _Featuring Svelte Contributors and Ambassadors_
 
 _This Week in Svelte_
 
-- [Ep. 132](https://www.youtube.com/watch?v=VIDEO_ID) — Topic
-- [Ep. 133](https://www.youtube.com/watch?v=VIDEO_ID) — Topic
+- [Ep. 132](https://www.youtube.com/watch?v=VIDEO_ID) - Topic
+- [Ep. 133](https://www.youtube.com/watch?v=VIDEO_ID) - Topic
 
 _Svelte Radio_
 
@@ -162,4 +162,4 @@ Until next time 👋🏼!
 - For apps: describe what it does, not how it's built
 - For libraries: describe what it provides to the developer
 - Link to GitHub repos with `[open source](url)` or `([GitHub](url))` inline when available
-- Don't include starter templates/boilerplates in Apps & Sites — those go in Libraries if at all
+- Don't include starter templates/boilerplates in Apps & Sites - those go in Libraries if at all
