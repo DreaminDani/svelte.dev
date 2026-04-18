@@ -5,6 +5,7 @@ description: >
   research, draft, or help write the Svelte newsletter. It pulls changelog entries from sveltejs/*
   GitHub repositories, cross-references svelte.dev documentation, fetches community content from
   Reddit and Discord, and curates the Community Showcase section. Invoke with /svelte-newsletter.
+allowed-tools: web_fetch, shell
 ---
 
 # Svelte Newsletter Research Skill
