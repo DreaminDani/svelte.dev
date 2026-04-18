@@ -108,10 +108,13 @@ https://www.reddit.com/r/sveltejs/top/.json?t=month&limit=100
 
 6. Go to the "OAuth2" tab
 7. Under "Scopes", select `bot`
-8. Under "Bot Permissions", select:
+8. Under "Bot Permissions", select these and nothing else:
 
-- Read Messages/View Channels
-- Read Message History
+- **View Channels** (General Permissions) - to see the channels
+- **Read Message History** (Text Permissions) - to read past messages
+- **Send Messages** (Text Permissions) - to post newsletter drafts or PR links
+
+The permissions integer should be **68608**.
 
 9. Copy the generated URL and open it to invite the bot to the Svelte Discord server
    (you'll need "Manage Server" permission, or ask an admin to add it)
