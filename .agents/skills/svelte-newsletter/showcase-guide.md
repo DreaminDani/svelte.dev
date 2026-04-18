@@ -166,8 +166,9 @@ _Icon Libraries_
 _Everything Else_
 ```
 
-For fewer than 10 items, you can still group them if there are obvious clusters (e.g. three
-UI libraries in a row), but a flat list is fine too.
+For fewer than 10 items, a flat list without headers is fine, but still group similar items
+together - put all the UI component libraries next to each other, all the state management
+tools next to each other, etc.
 
 **Starter kits and boilerplates:** Generally avoid including these - there are just too many.
 Only include one if it's genuinely notable or doing something unusual.
