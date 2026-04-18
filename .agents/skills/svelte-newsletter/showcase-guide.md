@@ -22,15 +22,13 @@ source content.
 
 ### Formatting
 
-```markdown
-- [App Name](https://url) is a short one-sentence description of what it does
-```
-
-If open source or has a relevant Reddit post:
+Prefer the real/deployed URL over the GitHub URL. If both exist, link the name to the real
+URL and put GitHub in parentheses at the end. If only a GitHub URL exists, use that as the
+main link.
 
 ```markdown
-- [App Name](https://url) is a description ([GitHub](https://github.com/...))
-- [App Name](https://url) is a description ([Reddit](https://reddit.com/...))
+- [App Name](https://deployed-url.com) is a short description ([GitHub](https://github.com/...))
+- [App Name](https://github.com/user/repo) is a short description when no deployed URL exists
 ```
 
 ### Description style
