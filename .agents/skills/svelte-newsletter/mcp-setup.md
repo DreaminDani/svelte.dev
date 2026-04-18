@@ -158,7 +158,7 @@ Alternatively, using Docker:
 ### Usage in the skill
 
 ```
-read-messages(channel="community-showcase", limit=100)
+read-messages(channel="site-showcase", limit=100)
 read-messages(channel="library-announcements", limit=100)
 read-messages(channel="resources", limit=100)
 ```
@@ -168,7 +168,7 @@ read-messages(channel="resources", limit=100)
 If the Discord MCP is not set up, provide the content manually:
 
 1. Open Discord and navigate to the Svelte server
-2. Open each relevant channel (#community-showcase, #library-announcements, #resources)
+2. Open each relevant channel (#site-showcase, #library-announcements, #resources)
 3. Scroll through posts from the current month
 4. Copy and paste relevant posts into a text file
 5. Tell the agent to read that file for Discord content
