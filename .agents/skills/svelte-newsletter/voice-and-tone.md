@@ -38,8 +38,9 @@ direct, be specific, let the work speak for itself.
 
 ## Punctuation rules
 
-- **Em dashes (---):** Use sparingly for asides and added context, not as your go-to
-  punctuation. One or two per newsletter is fine. Do not use them in every paragraph.
+- **Dashes:** Never use em dashes (`—`) or en dashes (`–`). Always use a space, hyphen, space
+  (`-`) for asides and added context. This is a hard rule - it's how every newsletter has
+  been written and it should stay that way.
 - **Exclamation points:** OK for greetings and one or two moments of genuine enthusiasm. Not
   every sentence.
 - **Colons:** Good for introducing lists and sections.

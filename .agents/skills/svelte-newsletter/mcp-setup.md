@@ -4,7 +4,7 @@ This guide explains how to set up MCP servers for GitHub, Reddit, and Discord in
 
 ## GitHub: github-mcp-server
 
-The GitHub MCP server is **built into Copilot CLI** — no setup needed if you're using it there.
+The GitHub MCP server is **built into Copilot CLI** - no setup needed if you're using it there.
 
 If you're using a different agent (Claude Code, Cursor, OpenCode, etc.), add the official
 GitHub MCP server:
@@ -66,9 +66,9 @@ Add to your Copilot CLI MCP config (`~/.copilot/mcp-config.json`), or use `/mcp 
 
 ### Available tools
 
-- `browse_subreddit` — Browse posts from a subreddit with sort/time filters
-- `search_reddit` — Search for posts across Reddit
-- `get_post_details` — Get full details and comments for a specific post
+- `browse_subreddit` - Browse posts from a subreddit with sort/time filters
+- `search_reddit` - Search for posts across Reddit
+- `get_post_details` - Get full details and comments for a specific post
 
 ### Usage in the skill
 
@@ -99,16 +99,20 @@ https://www.reddit.com/r/sveltejs/top/.json?t=month&limit=100
 ### Step 1: Create a Discord bot
 
 1. Go to https://discord.com/developers/applications
-2. Click "New Application" — name it something like "Newsletter Bot"
+2. Click "New Application" - name it something like "Newsletter Bot"
 3. Go to the "Bot" tab
-4. Click "Reset Token" and copy the token — save it securely
+4. Click "Reset Token" and copy the token - save it securely
 5. Under "Privileged Gateway Intents", enable:
-   - **Message Content Intent**
+
+- **Message Content Intent**
+
 6. Go to the "OAuth2" tab
 7. Under "Scopes", select `bot`
 8. Under "Bot Permissions", select:
-   - Read Messages/View Channels
-   - Read Message History
+
+- Read Messages/View Channels
+- Read Message History
+
 9. Copy the generated URL and open it to invite the bot to the Svelte Discord server
    (you'll need "Manage Server" permission, or ask an admin to add it)
 
@@ -152,8 +156,8 @@ Alternatively, using Docker:
 
 ### Available tools
 
-- `read-messages` — Read recent messages from a channel
-- `send-message` — Send a message to a channel (not needed for research)
+- `read-messages` - Read recent messages from a channel
+- `send-message` - Send a message to a channel (not needed for research)
 
 ### Usage in the skill
 
