@@ -81,6 +81,16 @@ Format each entry like:
 
 ### Phase 3: Community Showcase research
 
+**Important: Do NOT fetch individual showcase item URLs.** There will be dozens of apps,
+libraries, and sites — fetching each one would blow up the context window and trigger
+excessive permission prompts. Instead, write descriptions based on the context available
+from the source (Reddit post title/body, Discord message, GitHub repo description). Use
+`TODO` placeholders for anything you're unsure about, and let the user verify or refine
+descriptions manually afterward.
+
+Only fetch from these **source pages** (Reddit, Discord, YouTube, Svelte Radio) — never
+from the individual project URLs linked within them.
+
 #### Reddit (r/sveltejs)
 
 If the `reddit-mcp-buddy` MCP server is configured, use its `browse_subreddit` tool:
@@ -170,8 +180,9 @@ apps/svelte.dev/content/blog/YYYY-MM-01-whats-new-in-svelte-MONTH-YYYY.md
 
 Before presenting the draft:
 
-1. Verify all URLs are valid (especially docs links and PR links)
-2. Ensure no duplicate items between sections
-3. Check that version numbers are accurate
-4. Confirm the date in the filename and frontmatter matches the target month
-5. Review against the most recent 2-3 newsletters for tone and style consistency
+1. Verify docs links and PR links are well-formed (correct repo, correct PR number)
+2. Do NOT fetch individual showcase item URLs — leave those for the user to verify
+3. Ensure no duplicate items between sections
+4. Check that version numbers are accurate
+5. Confirm the date in the filename and frontmatter matches the target month
+6. Review against the most recent 2-3 newsletters for tone and style consistency
