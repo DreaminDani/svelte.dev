@@ -24,12 +24,19 @@ source content.
 
 Prefer the real/deployed URL over the GitHub URL. If both exist, link the name to the real
 URL and put GitHub in parentheses at the end. If only a GitHub URL exists, use that as the
-main link.
+main link. Reddit links should only be used as a last resort when no other URL is available.
+
+When sourcing from Reddit/Discord, it's OK to fetch the source post to find the real
+deployed URL - just don't fetch the project website itself for description content.
 
 ```markdown
 - [App Name](https://deployed-url.com) is a short description ([GitHub](https://github.com/...))
 - [App Name](https://github.com/user/repo) is a short description when no deployed URL exists
 ```
+
+**Previously featured items:** If something was featured in a past newsletter (more than a
+month ago) and has had a significant update, it's OK to include it again. Note when it was
+last featured: `(last featured in December 2024) has been updated to support Svelte 5`
 
 ### Description style
 
@@ -107,10 +114,9 @@ Videos and mixed content from community members (not contributors/ambassadors).
 
 #### Splitting learning resources
 
-When there are lots of community learning resources, split them into separate _To Read_
-(blog posts, written tutorials) and _To Watch_ (videos) sections instead of combining
-everything under _To Watch/Read_. Use the combined _To Watch/Read_ header only when there
-are just a few items total.
+Use _To Read_ for blog posts and written content, _To Watch_ for videos. Always use the
+correct label for the content type. Only use the combined _To Watch/Read_ header when there
+are very few items total and they're a mix of formats.
 
 ### What qualifies as a Learning Resource
 
@@ -125,6 +131,14 @@ are just a few items total.
 - Posts that just mention Svelte in passing
 - Generic web dev content that happens to use Svelte
 - Content older than the date range (unless it was just discovered/released)
+- Links already mentioned in the intro paragraph - don't duplicate
+
+### Placement tips
+
+- If you're not sure where something belongs (app vs resource vs library), default to Apps &
+  Sites. The user can move it later.
+- If an app has a companion blog post, list them separately - the app in Apps & Sites and the
+  blog post in Learning Resources. Don't cross-reference them inline.
 
 ---
 

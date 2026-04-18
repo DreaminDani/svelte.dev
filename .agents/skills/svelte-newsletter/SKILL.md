@@ -94,6 +94,10 @@ from the source (Reddit post title/body, Discord message, GitHub repo descriptio
 `TODO` placeholders for anything you're unsure about, and let the user verify or refine
 descriptions manually afterward.
 
+**Exception - resolving URLs:** It's OK to fetch a Reddit or Discord post to find the real
+deployed URL for a project (deployed URL > GitHub URL > Reddit link as a last resort). Just
+don't fetch the project website itself for description content.
+
 Only fetch from these **source pages** (Reddit, Discord, YouTube, Svelte Radio) - never
 from the individual project URLs linked within them.
 

@@ -41,6 +41,8 @@ direct, be specific, let the work speak for itself.
 - **Dashes:** Never use em dashes (`—`) or en dashes (`–`). Always use a space, hyphen, space
   (`-`) for asides and added context. This is a hard rule - it's how every newsletter has
   been written and it should stay that way.
+- **Oxford comma:** Don't use it. Write "Svelte, SvelteKit and the CLI" not "Svelte,
+  SvelteKit, and the CLI".
 - **Exclamation points:** OK for greetings and one or two moments of genuine enthusiasm. Not
   every sentence.
 - **Colons:** Good for introducing lists and sections.
@@ -59,8 +61,28 @@ direct, be specific, let the work speak for itself.
 
 ## How to write changelog items
 
-Each item should be a full sentence in active voice that explains what users can now do.
-Include the version number in bold and link to docs/PRs when available.
+Each item should be a full sentence in active voice that explains what users can now do and
+why it matters. Include the version number in bold and link to docs/PRs when available.
+
+**Version number format:** Only prefix the package name when the section contains a mix of
+packages. In a "What's new in SvelteKit" section, just use `**2.57.0**`. In a combined
+"What's new in Svelte and SvelteKit" section, use `**kit@2.56.0**` and `**svelte@5.55.0**`.
+
+**Docs links:** Link to relevant svelte.dev docs pages AND external documentation when
+relevant (e.g. a TypeScript release blog post for TypeScript support changes).
+
+**Breaking changes:** Use `breaking:` prefix inline when there are just one or two. When
+there are many breaking changes in one package, group them under a bold sub-bullet like
+`**Remote Function Breaking Changes (2.56.0)**` with an indented list below. Never use
+`Breaking (package):` with the package in parentheses - it looks bad.
+
+**Ordering:** Default to oldest version first within a section. Exception: if breaking
+changes are grouped as sub-bullets, put that group at the end of the section so the list
+doesn't awkwardly have bullets, then sub-bullets, then more bullets.
+
+**Changelog footer:** Each changelog section gets its own footer paragraph linking to the
+relevant CHANGELOGs. If sections are combined, use one combined footer. If split, each
+section gets its own.
 
 Good:
 
@@ -80,7 +102,33 @@ Bad:
 
 ## How to write showcase items
 
-Format: `[Name](url)` followed by a one-sentence description starting with a verb.
+Format: `[Name](url)` followed by a one-sentence description starting with a verb. Keep it
+short - one sentence max. Don't pad descriptions with stats, feature lists, or marketing
+copy.
+
+**URL priority:** deployed URL > GitHub URL > Reddit link (last resort). It's OK to fetch a
+Reddit/Discord post to find the real deployed URL, but don't fetch the project itself for
+description content.
+
+**Previously featured items:** If a library or app was featured in a past newsletter and has
+a notable update, it's OK to include it again. Note when it was last featured:
+`(last featured in December 2024) has been updated to support Svelte 5`
+
+**Link text for learning resources:** Always use the exact title of the video or blog post as
+the link text, followed by "by Author Name" (or channel name). The author/channel comes from
+whoever published it, not who is featured in it.
+
+```
+- [Paolo Ricciuti - Svelte, TMCP](url) by devtools-fm
+- [How to Build Forms in SvelteKit](url) by Joy of Code
+```
+
+**When items don't fit neatly:** If you're not sure whether something is an app, a library,
+or a learning resource, default to Apps & Sites. The user can move it later.
+
+**Don't duplicate:** If a link appears in the intro paragraph, don't repeat it in the
+showcase. If an app has a companion blog post, list them separately - the app in Apps & Sites
+and the blog post in Learning Resources.
 
 Good:
 
@@ -113,10 +161,13 @@ Use horizontal rules (`---`) between major section groups. Never use clunky tran
 
 ## Openings and closings
 
-**Openings** should be casual and direct. One or two sentences max before getting to content:
+**Openings** should be casual and direct. 1-3 short sentences that summarize overall what
+happened without getting into too much detail. The intro is also a good spot for highlighting
+links that don't fit in the showcase (like awards, external features, conference
+announcements). Don't over-explain these - just mention and link. End with a transition:
 
+- "Big month, bigger showcase... so let's dive in!"
 - "Happy September, y'all!"
-- "Welcome to the first edition of..."
 - "Now let's get to the news"
 
 **Closings** should be brief and inviting:

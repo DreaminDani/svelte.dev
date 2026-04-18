@@ -24,14 +24,23 @@ authorURL: https://dreamindani.com
 ---
 ```
 
-The description should be a short (under ~100 chars) summary of the top 2-3 highlights.
+The description should be a short (under ~100 chars), comma-separated list of the top 2-3
+highlights. No Oxford comma. Keep it punchy - just the highlights, no full sentences.
+
+Example: `'Svelte CLI Community Add-ons, TypeScript 6.0 support in SvelteKit'`
 
 ## Body structure
 
 ### 1. Intro paragraph
 
-1-3 sentences of editorial context. Mention any major announcements, events, or ecosystem
-milestones. End with a transition like "Let's dive in!" or "So let's have a look..."
+1-3 short sentences of editorial context. Summarize overall what happened without getting into
+too much detail. This is also a good place to highlight links that don't fit in the showcase
+(awards, external features, conference announcements) - just mention and link, don't
+over-explain. End with a transition like "Let's dive in!" or "Big month, bigger showcase...
+so let's dive in!"
+
+Don't duplicate intro links in the showcase - if something is mentioned in the intro, it
+doesn't need to appear again in To Read or Apps & Sites.
 
 ### 2. Changelog section
 
@@ -65,22 +74,42 @@ Each feature is a bullet point:
 
 #### Formatting rules
 
-- **Version**: Bold with package name - `**svelte@5.54.0**`, `**kit@2.54.0**`, `**sv@0.12.6**`
-- **Docs link**: Only when a relevant svelte.dev docs page exists - `[Docs](url)`
+- **Version**: Bold the version number. Only prefix the package name when the section
+  contains mixed packages. In a dedicated "What's new in SvelteKit" section, use `**2.57.0**`.
+  In a combined section, use `**kit@2.56.0**`, `**svelte@5.55.0**`, `**sv@0.12.6**`.
+- **Docs link**: When a relevant docs page exists on svelte.dev or externally (e.g. a
+  TypeScript release blog post) - `[Docs](url)`
 - **PR link**: Always include - `[#17951](https://github.com/sveltejs/svelte/pull/17951)`
 - Multiple links can appear: `[Docs](url), [#PR](url)`
 - For adapter-specific changes, prefix with the adapter name: `Node:`, `Vercel:`, `Netlify:`
-- For Svelte CLI changes, use `**sv@version**`
-- For language tools, use `**language-server@version**` or `**svelte-language-server@version**`
-- For breaking changes, note explicitly: "Breaking (Package):" or "A breaking change in..."
+- For breaking changes with few items, use `breaking:` prefix inline. For many breaking
+  changes in one package, group under a bold sub-bullet:
+  `**Remote Function Breaking Changes (2.56.0)**` with indented items below. Never use
+  `Breaking (Package):` with the package in parentheses.
 
 #### Changelog footer
 
-End the changelog section with a paragraph linking to the full CHANGELOGs:
+Each changelog section gets its own footer linking to the relevant CHANGELOGs. If sections
+are combined into one, use one combined footer. If split into separate sections, each gets
+its own footer.
+
+Combined example:
 
 ```markdown
 For a full list of changes - including all the important bugfixes that went into the releases this month - check out the Svelte compiler's [CHANGELOG](https://github.com/sveltejs/svelte/blob/main/packages/svelte/CHANGELOG.md) and the SvelteKit / Adapter [CHANGELOGs](https://github.com/sveltejs/kit/tree/main/packages).
 ```
+
+Split example (after SvelteKit section):
+
+```markdown
+Looking for more details on the many bug fixes and performance optimizations from this month? Check out the SvelteKit / Adapter [CHANGELOGs](https://github.com/sveltejs/kit/tree/main/packages).
+```
+
+#### Item ordering
+
+Default to oldest version first within a section. Exception: if breaking changes are grouped
+as sub-bullets, put that group at the end so the list flows naturally (bullets, then the
+sub-bullet group at the end - not bullets, sub-bullets, then more bullets).
 
 ### 3. Horizontal rule
 
@@ -110,8 +139,8 @@ For a full list of changes - including all the important bugfixes that went into
 
 _Featuring Svelte Contributors and Ambassadors_
 
-- [Title](url) by Author Name
-- [Title](url) by Author Name (format note like "video" if needed)
+- [Exact Video/Post Title](url) by Channel or Author Name
+- [Exact Video/Post Title](url) by Channel or Author Name
 
 _This Week in Svelte_
 
@@ -131,8 +160,10 @@ _To Watch_
 - [Video Title](url) by Author Name
 ```
 
-Use separate _To Read_ and _To Watch_ sections when there are many community resources. When
-there are only a few, you can combine them under _To Watch/Read_.
+Use separate _To Read_ and _To Watch_ sections based on content type - _To Read_ for blog
+posts and written tutorials, _To Watch_ for videos. Only use the combined _To Watch/Read_
+header when there are very few items total and they're mixed. Don't label something "To
+Watch" if it's a blog post, or vice versa.
 
 #### Libraries, Tools & Components
 
