@@ -1,10 +1,11 @@
 ---
 name: svelte-newsletter
 description: >
-  Research and draft the monthly "What's new in Svelte" newsletter. Use this skill when asked to
-  research, draft, or help write the Svelte newsletter. It pulls changelog entries from sveltejs/*
-  GitHub repositories, cross-references svelte.dev documentation, fetches community content from
-  Reddit and Discord, and curates the Community Showcase section. Invoke with /svelte-newsletter.
+  Research and draft the monthly "What's new in Svelte" newsletter, or update an existing
+  draft with new content. Use this skill when asked to research, draft, update, or help write
+  the Svelte newsletter. It pulls changelog entries from sveltejs/* GitHub repositories,
+  cross-references svelte.dev documentation, fetches community content from Reddit and Discord,
+  and curates the Community Showcase section. Invoke with /svelte-newsletter.
 allowed-tools: web_fetch, shell
 ---
 
@@ -39,9 +40,12 @@ See `mcp-setup.md` for optional Reddit/Discord MCP server setup.
 Ask the user what month/year the newsletter is for. The date range starts on the 1st of the
 previous month and runs through today (or the end of that month if it has already passed).
 
+**If a draft already exists** for this month in `apps/svelte.dev/content/blog/`, switch to
+the **Update Workflow** below instead of starting from scratch.
+
 It is completely normal to draft the newsletter mid-month. For example, on April 18th you would
 draft the "May 2026" newsletter covering April 1 – April 18. The remaining days can be added
-later before publishing on May 1st.
+later before publishing on May 1st using the Update Workflow.
 
 Check `apps/svelte.dev/content/blog/` for the most recent `whats-new-in-svelte-*.md` file to
 see what was already covered. The date range is a guideline, not a hard cutoff - items from
@@ -205,4 +209,77 @@ Before presenting the draft:
 5. Confirm the date in the filename and frontmatter matches the target month
 6. Review against the most recent 2-3 newsletters for tone and style consistency
 7. Check all copy against `voice-and-tone.md` - no AI-isms, no corporate speak, active voice
+
+---
+
+## Update Workflow
+
+Use this workflow when a draft already exists for the current month and the user wants to
+add anything new since the draft was written. This is the typical late-month flow - the
+initial draft is written mid-month, then updated closer to publish date.
+
+### Step 1: Read the existing draft
+
+Read the current draft from `apps/svelte.dev/content/blog/`. Identify:
+
+- The date range already covered (check the most recent changelog versions and showcase items)
+- What's already included so you don't duplicate anything
+
+### Step 2: Research new content
+
+Run the same research from Phases 2-4 but with a narrower date range - from roughly where
+the existing draft left off through today. For changelogs, look at versions newer than the
+newest version already in the draft. For Reddit/Discord, look at posts newer than what's
+already listed.
+
+### Step 3: Present additions
+
+Don't rewrite the whole newsletter. Instead, present the new items grouped by where they
+belong in the existing draft:
+
+```
+
+## New changelog items
+
+### For "What's new in SvelteKit" section:
+
+- new item 1
+- new item 2
+
+### For "What's new in Svelte" section:
+
+- new item 3
+
+## New showcase items
+
+### Apps & Sites:
+
+- new app 1
+
+### Learning Resources:
+
+- new resource 1
+
+### Libraries:
+
+- new library 1
+
+## Updated sections
+
+### This Week in Svelte:
+
+- [Ep. 140](url) - Topic (add after Ep. 139)
+
+```
+
+### Step 4: Apply updates
+
+After the user confirms which additions to include, insert them into the existing draft in
+the correct locations. Follow the same ordering rules (oldest first for changelogs, breaking
+changes at end, similar libraries clustered together). Re-check the frontmatter description
+to see if the highlights have changed.
+
+### Step 5: Review
+
+Run the same Phase 6 review checks on the updated draft.
 ```
