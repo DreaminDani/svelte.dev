@@ -35,11 +35,27 @@ milestones. End with a transition like "Let's dive in!" or "So let's have a look
 
 ### 2. Changelog section
 
-The section header varies slightly depending on content:
+The changelog section can be **one combined section or multiple separate sections** depending
+on how many features there are. The groupings are:
 
-- `## What's new in Svelte and SvelteKit` — when both have features
-- `## What's new in Svelte` / `## What's new in SvelteKit` — separate sections when there's
-  a lot of content
+1. **Svelte** — the compiler and runtime (`sveltejs/svelte`)
+2. **SvelteKit** — SvelteKit core + all adapters (`sveltejs/kit` — includes adapter-node,
+   adapter-vercel, adapter-netlify, adapter-cloudflare, etc.)
+3. **Language Tools, Ecosystem & CLI** — language server, sv CLI, ai-tools, vite-plugin-svelte
+
+**When to combine vs separate:**
+
+- If there are only a few changes total (fewer than ~3-4 per group), combine everything into
+  one section: `## What's new in Svelte and SvelteKit`
+- If any one group has 3-4+ changes, split into separate sections:
+  - `## What's new in Svelte`
+  - `## What's new in SvelteKit`
+  - (Language tools/CLI items can be grouped with SvelteKit or get their own header like
+    `## What's new in SvelteKit, Svelte CLI and Language Tools`)
+
+**Important for SvelteKit:** Check ALL packages under `packages/` in the kit repo — not just
+`packages/kit/CHANGELOG.md`. Adapter changes (node, vercel, netlify, cloudflare, etc.) are
+grouped with SvelteKit, not in a separate section.
 
 Each feature is a bullet point:
 
