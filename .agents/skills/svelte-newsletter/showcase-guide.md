@@ -46,7 +46,13 @@ main link.
 
 #### _Featuring Svelte Contributors and Ambassadors_
 
-Content authored by or prominently featuring these known contributors goes in this section:
+Content authored by or prominently featuring Svelte contributors and ambassadors goes in
+this section.
+
+**How to identify ambassadors:** If Discord MCP is configured, read the `#svelte-ambassadors`
+channel to get the current list of active ambassadors. Otherwise, use the historical list
+below — it is based on people who have consistently appeared in this section across past
+newsletters.
 
 | Name                   | Also known as        | Role                                   |
 | ---------------------- | -------------------- | -------------------------------------- |
@@ -69,7 +75,9 @@ Content authored by or prominently featuring these known contributors goes in th
 | GHOST                  | ghostdevv            | Svelte core team                       |
 | Jason Lengstorf        | CodeTV               | Community (if Svelte-specific content) |
 
-If content features multiple contributors (e.g., a conference panel), it still goes here.
+This list may not be exhaustive. If you find content by someone not listed here who appears
+to be a Svelte contributor or ambassador, include them in this section and note it for the
+user to confirm.
 
 #### _This Week in Svelte_
 
