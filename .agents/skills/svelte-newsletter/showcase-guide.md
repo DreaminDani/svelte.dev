@@ -105,6 +105,13 @@ Blog posts and written tutorials from community members (not contributors/ambass
 
 Videos and mixed content from community members (not contributors/ambassadors).
 
+#### Splitting learning resources
+
+When there are lots of community learning resources, split them into separate _To Read_
+(blog posts, written tutorials) and _To Watch_ (videos) sections instead of combining
+everything under _To Watch/Read_. Use the combined _To Watch/Read_ header only when there
+are just a few items total.
+
 ### What qualifies as a Learning Resource
 
 - Tutorials, courses, or how-to guides about Svelte/SvelteKit
@@ -147,7 +154,9 @@ Videos and mixed content from community members (not contributors/ambassadors).
 
 ### Sub-grouping
 
-When there are many entries (8+), group them with italic headers:
+When there are many library entries (roughly 10+), group them by similarity using italic
+headers. Use groupings that make sense for the current month's content - don't force
+categories. Example groupings:
 
 ```markdown
 _UI Components and Animations_
@@ -157,7 +166,11 @@ _Icon Libraries_
 _Everything Else_
 ```
 
-Use groupings that make sense for the current month's content. Don't force categories.
+For fewer than 10 items, you can still group them if there are obvious clusters (e.g. three
+UI libraries in a row), but a flat list is fine too.
+
+**Starter kits and boilerplates:** Generally avoid including these - there are just too many.
+Only include one if it's genuinely notable or doing something unusual.
 
 ---
 

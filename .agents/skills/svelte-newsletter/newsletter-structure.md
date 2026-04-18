@@ -125,7 +125,14 @@ _Svelte Radio_
 _To Read_
 
 - [Article Title](url) by Author Name
+
+_To Watch_
+
+- [Video Title](url) by Author Name
 ```
+
+Use separate _To Read_ and _To Watch_ sections when there are many community resources. When
+there are only a few, you can combine them under _To Watch/Read_.
 
 #### Libraries, Tools & Components
 
