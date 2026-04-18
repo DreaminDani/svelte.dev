@@ -43,7 +43,10 @@ draft the "May 2026" newsletter covering April 1 – April 18. The remaining day
 later before publishing on May 1st.
 
 Check `apps/svelte.dev/content/blog/` for the most recent `whats-new-in-svelte-*.md` file to
-confirm the last published newsletter date and avoid overlap.
+see what was already covered. The date range is a guideline, not a hard cutoff — items from
+the prior month that were missed or not included in the previous newsletter should still be
+included if they are worth mentioning. Compare against the last published newsletter to catch
+anything that slipped through.
 
 ### Phase 2: Changelog research
 
