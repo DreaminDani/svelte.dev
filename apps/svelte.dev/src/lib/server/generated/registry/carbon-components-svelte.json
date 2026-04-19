@@ -6,10 +6,10 @@
     "metonym"
   ],
   "homepage": "https://svelte.carbondesignsystem.com/",
-  "version": "0.106.0",
-  "downloads": 21112,
-  "github_stars": 2867,
-  "updated": "2026-04-09T01:35:23.058Z",
+  "version": "0.106.1",
+  "downloads": 20122,
+  "github_stars": 2870,
+  "updated": "2026-04-16T16:20:55.883Z",
   "typescript": true,
   "runes": false,
   "last_rune_check_version": "0.88.4"
