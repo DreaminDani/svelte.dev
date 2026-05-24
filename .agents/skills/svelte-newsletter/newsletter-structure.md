@@ -200,4 +200,6 @@ Until next time 👋🏼!
 - For apps: describe what it does, not how it's built
 - For libraries: describe what it provides to the developer
 - Link to GitHub repos with `[open source](url)` or `([GitHub](url))` inline when available
+- Prefer canonical project/resource URLs in final copy. Use Reddit/Discord source links only when
+  no better public URL exists, or when the source discussion itself is the resource
 - Don't include starter templates/boilerplates in Apps & Sites - those go in Libraries if at all

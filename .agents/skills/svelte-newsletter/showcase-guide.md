@@ -26,6 +26,10 @@ Prefer the real/deployed URL over the GitHub URL. If both exist, link the name t
 URL and put GitHub in parentheses at the end. If only a GitHub URL exists, use that as the
 main link. Reddit links should only be used as a last resort when no other URL is available.
 
+Discord links follow the same rule as Reddit links - treat them as source links, not primary
+showcase destinations. Use Discord links only when no better public URL exists, or when the
+discussion thread itself is the thing being referenced.
+
 When sourcing from Reddit/Discord, it's OK to fetch the source post to find the real
 deployed URL - just don't fetch the project website itself for description content.
 
@@ -197,7 +201,8 @@ Only include one if it's genuinely notable or doing something unusual.
 - Include posts with **20+ upvotes**
 - Each post should be categorized into one of the three showcase sections
 - Self-promotion posts are fine if the project is real and interesting
-- Check the linked URL to verify the project is still live
+- Use the Reddit post to find canonical project links (deployed URL, GitHub, docs, package page)
+- Check the linked canonical URL to verify the project is still live
 - Skip: questions, bug reports, "looking for feedback" with no demo, memes
 
 ### Discord (Svelte server)
@@ -207,6 +212,8 @@ Only include one if it's genuinely notable or doing something unusual.
 - **#resources** → Learning Resources
 - Look for posts with reactions/engagement as a quality signal
 - Some overlap with Reddit is expected - deduplicate
+- Use Discord to discover canonical links, but avoid using Discord thread links as final
+  newsletter links unless there is no better public destination
 
 ### YouTube / Podcasts
 

@@ -100,6 +100,13 @@ descriptions manually afterward.
 deployed URL for a project (deployed URL > GitHub URL > Reddit link as a last resort). Just
 don't fetch the project website itself for description content.
 
+**Final output URL rule:** In the newsletter draft, do not link to Reddit/Discord when a
+canonical URL exists (deployed site, GitHub repo, docs page, package page, video page, etc.).
+Only keep Reddit/Discord links when:
+
+- there is no better public URL, or
+- the conversation itself is the resource being highlighted.
+
 Only fetch from these **source pages** (Reddit, Discord, YouTube, Svelte Radio) - never
 from the individual project URLs linked within them.
 
@@ -202,6 +209,8 @@ Before presenting the draft:
 5. Confirm the date in the filename and frontmatter matches the target month
 6. Review against the most recent 2-3 newsletters for tone and style consistency
 7. Check all copy against `voice-and-tone.md` - no AI-isms, no corporate speak, active voice
+8. Confirm showcase links use canonical destinations and not Reddit/Discord source links unless
+   one of the exceptions above applies
 
 ---
 
