@@ -1,33 +1,11 @@
-# MCP Server Setup Guide
+# Community API Setup Guide
 
-This guide explains how to set up MCP servers for GitHub, Reddit, and Discord integration.
+This guide explains how to source GitHub, Reddit, and Discord data using HTTP endpoints.
+It intentionally uses direct API calls.
 
-## GitHub: github-mcp-server
+## GitHub
 
-The GitHub MCP server is **built into Copilot CLI** - no setup needed if you're using it there.
-
-If you're using a different agent (Claude Code, Cursor, OpenCode, etc.), add the official
-GitHub MCP server:
-
-```json
-{
-	"mcpServers": {
-		"github": {
-			"command": "npx",
-			"args": ["-y", "@modelcontextprotocol/server-github"],
-			"env": {
-				"GITHUB_PERSONAL_ACCESS_TOKEN": "your_github_pat_here"
-			}
-		}
-	}
-}
-```
-
-Create a personal access token at https://github.com/settings/tokens with `repo` (read)
-scope. This enables `get_file_contents`, `list_commits`, `search_code`, and other tools
-used to fetch CHANGELOGs and PRs.
-
-**Fallback (no MCP):** Fetch CHANGELOGs directly via curl or web_fetch:
+Fetch CHANGELOGs directly via `curl` or `web_fetch`:
 
 ```bash
 # Svelte CHANGELOG
@@ -45,40 +23,10 @@ curl -s https://raw.githubusercontent.com/sveltejs/kit/main/packages/kit/CHANGEL
 
 ---
 
-## Reddit: reddit-mcp-buddy
+## Reddit
 
-**Zero-config, no authentication required.**
-
-### Setup
-
-Add to your Copilot CLI MCP config (`~/.copilot/mcp-config.json`), or use `/mcp add`:
-
-```json
-{
-	"mcpServers": {
-		"reddit": {
-			"command": "npx",
-			"args": ["-y", "reddit-mcp-buddy"]
-		}
-	}
-}
-```
-
-### Available tools
-
-- `browse_subreddit` - Browse posts from a subreddit with sort/time filters
-- `search_reddit` - Search for posts across Reddit
-- `get_post_details` - Get full details and comments for a specific post
-
-### Usage in the skill
-
-```
-browse_subreddit(subreddit="sveltejs", sort="top", time="month")
-```
-
-### Fallback (no MCP)
-
-Run the `fetch-reddit.sh` script included in this skill's directory:
+No authentication is required. Run the `fetch-reddit.sh` script included in this skill's
+directory:
 
 ```bash
 bash .agents/skills/svelte-newsletter/fetch-reddit.sh
@@ -92,9 +40,9 @@ https://www.reddit.com/r/sveltejs/top/.json?t=month&limit=100
 
 ---
 
-## Discord: discord-mcp
+## Discord HTTP API
 
-**Requires a one-time Discord bot token setup.**
+Discord sourcing uses a bot token plus the Discord REST API.
 
 ### Step 1: Create a Discord bot
 
@@ -102,9 +50,8 @@ https://www.reddit.com/r/sveltejs/top/.json?t=month&limit=100
 2. Click "New Application" - name it something like "Newsletter Bot"
 3. Go to the "Bot" tab
 4. Click "Reset Token" and copy the token - save it securely
-5. Under "Privileged Gateway Intents", enable:
-
-- **Message Content Intent**
+5. Under "Privileged Gateway Intents", enable **Message Content Intent**
+   (recommended, otherwise message content can be empty)
 
 6. Go to the "OAuth2" tab
 7. Under "Scopes", select `bot`
@@ -119,60 +66,69 @@ The permissions integer should be **68608**.
 9. Copy the generated URL and open it to invite the bot to the Svelte Discord server
    (you'll need "Manage Server" permission, or ask an admin to add it)
 
-### Step 2: Configure the MCP server
+### Step 2: Provide token to shell (recommended)
 
-Add to your Copilot CLI MCP config (`~/.copilot/mcp-config.json`), or use `/mcp add`:
+Do not read tokens from `~/.copilot/*` files. Use a dedicated environment variable.
 
-```json
-{
-	"mcpServers": {
-		"discord": {
-			"command": "npx",
-			"args": ["-y", "discordmcp"],
-			"env": {
-				"DISCORD_TOKEN": "your_bot_token_here"
-			}
-		}
-	}
-}
+Preferred env var name:
+
+```bash
+export DISCORD_BOT_TOKEN='your_bot_token_here'
 ```
 
-Alternatively, using Docker:
+Or use a local ignored file and source it:
 
-```json
-{
-	"mcpServers": {
-		"discord": {
-			"command": "docker",
-			"args": [
-				"run",
-				"--rm",
-				"-i",
-				"-e",
-				"DISCORD_TOKEN=your_bot_token_here",
-				"saseq/discord-mcp:latest"
-			]
-		}
-	}
-}
+```bash
+echo "export DISCORD_BOT_TOKEN='your_bot_token_here'" >> ~/.zshrc.local
+source ~/.zshrc.local
 ```
 
-### Available tools
+Other good options:
 
-- `read-messages` - Read recent messages from a channel
-- `send-message` - Send a message to a channel (not needed for research)
+- Use `direnv` with a local `.envrc` (kept out of git)
+- Use a secrets manager CLI (for example 1Password `op`, Bitwarden, or Doppler) and export at runtime
 
-### Usage in the skill
+Token hygiene:
 
+- Never commit tokens to the repo
+- Never paste tokens into docs or terminal logs
+- Rotate immediately if a token is exposed
+
+### Step 3: Read channel data with HTTP endpoints
+
+Use these endpoints:
+
+```bash
+# verify token
+curl -s -H "Authorization: Bot $DISCORD_BOT_TOKEN" \
+  https://discord.com/api/v10/users/@me
+
+# list bot guilds
+curl -s -H "Authorization: Bot $DISCORD_BOT_TOKEN" \
+  https://discord.com/api/v10/users/@me/guilds?limit=200
+
+# list channels in guild
+curl -s -H "Authorization: Bot $DISCORD_BOT_TOKEN" \
+  https://discord.com/api/v10/guilds/<GUILD_ID>/channels
+
+# active threads (good for forum channels)
+curl -s -H "Authorization: Bot $DISCORD_BOT_TOKEN" \
+  https://discord.com/api/v10/guilds/<GUILD_ID>/threads/active
+
+# read recent messages from a thread/channel
+curl -s -H "Authorization: Bot $DISCORD_BOT_TOKEN" \
+  "https://discord.com/api/v10/channels/<CHANNEL_OR_THREAD_ID>/messages?limit=100"
 ```
-read-messages(channel="site-showcase", limit=100)
-read-messages(channel="library-announcements", limit=100)
-read-messages(channel="resources", limit=100)
-```
 
-### Fallback (no MCP)
+Target channels for this skill:
 
-If the Discord MCP is not set up, provide the content manually:
+- `#site-showcase`
+- `#library-announcements`
+- `#resources`
+
+### Fallback (manual)
+
+If API access is not available, provide the content manually:
 
 1. Open Discord and navigate to the Svelte server
 2. Open each relevant channel (#site-showcase, #library-announcements, #resources)
@@ -180,10 +136,10 @@ If the Discord MCP is not set up, provide the content manually:
 4. Copy and paste relevant posts into a text file
 5. Tell the agent to read that file for Discord content
 
-### Verification
+### Troubleshooting
 
-After setting up either MCP server, verify it's working:
+If message content is empty:
 
-1. Start or restart Copilot CLI
-2. Run `/mcp` to see configured servers
-3. The server should appear in the list with a "connected" status
+1. Enable Message Content Intent in Discord Developer Portal
+2. Re-invite the bot to the server after updating intents
+3. Retry API calls with `users/@me` first, then channel/thread reads

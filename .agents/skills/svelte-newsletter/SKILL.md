@@ -29,7 +29,7 @@ See `newsletter-structure.md` for the exact output format.
 See `repositories.md` for the list of repos and where to find their CHANGELOGs.
 See `showcase-guide.md` for curation criteria and sourcing instructions.
 See `voice-and-tone.md` for writing style, word choices, and anti-AI-ism rules.
-See `mcp-setup.md` for optional Reddit/Discord MCP server setup.
+See `mcp-setup.md` for Reddit/Discord API setup and token handling.
 
 ---
 
@@ -57,10 +57,8 @@ anything that slipped through.
 
 For each repository listed in `repositories.md`:
 
-1. **Fetch the CHANGELOG** - If using Copilot CLI, the GitHub MCP server is built in - use
-   its `get_file_contents` tool. If using another agent or tool, see `mcp-setup.md` for how
-   to add the GitHub MCP server, or fall back to fetching CHANGELOGs directly via the GitHub
-   REST API or `curl`:
+1. **Fetch the CHANGELOG** - Use GitHub raw URLs, releases pages, or the GitHub REST API. You can
+   fetch CHANGELOGs directly via `curl`:
    ```
    curl -s https://raw.githubusercontent.com/sveltejs/svelte/main/packages/svelte/CHANGELOG.md
    ```
@@ -107,13 +105,7 @@ from the individual project URLs linked within them.
 
 #### Reddit (r/sveltejs)
 
-If the `reddit-mcp-buddy` MCP server is configured, use its `browse_subreddit` tool:
-
-```
-browse_subreddit(subreddit="sveltejs", sort="top", time="month")
-```
-
-Otherwise, run the `fetch-reddit.sh` script in this skill's directory:
+Run the `fetch-reddit.sh` script in this skill's directory:
 
 ```bash
 bash .agents/skills/svelte-newsletter/fetch-reddit.sh
@@ -134,13 +126,14 @@ Filter to posts with **20+ upvotes**. Categorize each post as:
 
 #### Discord (Svelte server)
 
-If the Discord MCP is configured (see `mcp-setup.md`), read messages from:
+Use Discord HTTP endpoints with a bot token (see `mcp-setup.md`) and read messages from:
 
 - `#site-showcase` - Apps & Sites (sometimes Libraries)
 - `#library-announcements` - Libraries, Tools & Components
 - `#resources` - Learning Resources (blog posts, videos)
 
-If Discord MCP is not available, ask the user to paste content from these channels or provide
+If content fields come back empty, enable Message Content Intent for the bot application.
+If API access is not available, ask the user to paste content from these channels or provide
 a text file with the messages.
 
 #### Recurring content sources
