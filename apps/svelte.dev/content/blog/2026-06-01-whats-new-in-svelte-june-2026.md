@@ -62,6 +62,7 @@ _This Week in Svelte_
 _To Read_
 
 - [Why Svelte Is Better Than React in the Agentic Era](https://zackwebster.com/blog/why-svelte-is-better-than-react-in-the-ai-era) by Zack Webster
+- [Automate LinkedIn Carousels with SvelteKit Remote Functions](https://orshot.com/blog/automate-linkedin-carousels-sveltekit) by Rishi Raj Jain
 
 ### Libraries, Tools & Components
 
