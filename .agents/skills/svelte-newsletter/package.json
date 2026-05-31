@@ -1,0 +1,9 @@
+{
+	"name": "svelte-newsletter-skill-tools",
+	"private": true,
+	"type": "module",
+	"description": "Browser-driven fetchers for the svelte-newsletter skill (kept out of the pnpm workspace).",
+	"dependencies": {
+		"playwright": "^1.49.0"
+	}
+}

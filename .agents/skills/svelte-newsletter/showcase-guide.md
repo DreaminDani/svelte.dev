@@ -210,13 +210,22 @@ Only include one if it's genuinely notable or doing something unusual.
 - **#site-showcase** → mostly Apps & Sites
 - **#library-announcements** → Libraries, Tools & Components
 - **#resources** → Learning Resources
+- These are often forum channels: enumerate active + archived threads, then read thread messages
+- Prefer the thread starter post for title/context; avoid relying on a single latest reply
 - Look for posts with reactions/engagement as a quality signal
 - Some overlap with Reddit is expected - deduplicate
 - Use Discord to discover canonical links, but avoid using Discord thread links as final
   newsletter links unless there is no better public destination
 
+Discord quality filter:
+
+- Skip low-context "check my site" follow-ups unless you can resolve a clear canonical URL
+- Skip items where only CDN attachment media is available and no project URL can be identified
+- Keep only entries with enough information for a one-sentence description
+
 ### YouTube / Podcasts
 
 - **Svelte Society** YouTube channel - This Week in Svelte episodes, meetup recordings
+- Prefer YouTube Data API output (via `fetch-youtube.sh` + `YOUTUBE_API_KEY`) over fragile page scraping
 - **Svelte Radio** at svelteradio.com - podcast episodes
 - Check for Svelte conference talks if a conference happened that month

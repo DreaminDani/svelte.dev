@@ -112,17 +112,30 @@ from the individual project URLs linked within them.
 
 #### Reddit (r/sveltejs)
 
-Run the `fetch-reddit.sh` script in this skill's directory:
+Reddit no longer issues script-app OAuth credentials, and anonymous JSON / RSS / `curl`
+requests are blocked at the edge or behind a JS bot wall. The only working path is the
+bundled headless-browser fetcher (Playwright + a persistent logged-in profile).
+
+First-time setup (one-off):
 
 ```bash
-bash .agents/skills/svelte-newsletter/fetch-reddit.sh
+cd .agents/skills/svelte-newsletter
+npm install
+npx playwright install chromium
+REDDIT_BROWSER_HEADED=1 node fetch-reddit-browser.mjs 5
+# A Chromium window opens. Sign in to reddit.com (as u/sveltenewsletter or your main).
+# The profile is saved to ~/.cache/svelte-newsletter/reddit-profile.
 ```
 
-Or fetch manually via web_fetch:
+Normal monthly run (headless, reuses the saved profile):
 
+```bash
+node .agents/skills/svelte-newsletter/fetch-reddit-browser.mjs 25 > /tmp/reddit-<yyyy-mm>.md
 ```
-https://www.reddit.com/r/sveltejs/top/.json?t=month&limit=100
-```
+
+The script outputs markdown to stdout with title, link, author, score, comment count, post
+body, and up to 3 top comments per post (OP-authored comments are tagged `(OP)`). See
+`mcp-setup.md` for env vars and troubleshooting.
 
 Filter to posts with **20+ upvotes**. Categorize each post as:
 
@@ -139,6 +152,19 @@ Use Discord HTTP endpoints with a bot token (see `mcp-setup.md`) and read messag
 - `#library-announcements` - Libraries, Tools & Components
 - `#resources` - Learning Resources (blog posts, videos)
 
+Important implementation detail: these are forum-style channels. Do not only read the parent
+channel directly. Enumerate thread IDs first (active + archived), then fetch thread messages.
+When possible, use the thread starter message as the source of truth for links and context.
+
+When scanning thread messages, prefer canonical links in this order:
+
+1. Deployed app/site URL
+2. GitHub/package/docs URL
+3. Discord thread URL (last resort)
+
+If Discord API access succeeds but community extraction is incomplete (for example, you cannot
+confidently resolve thread links/titles), explicitly report that to the user before finalizing.
+
 If content fields come back empty, enable Message Content Intent for the bot application.
 If API access is not available, ask the user to paste content from these channels or provide
 a text file with the messages.
@@ -148,7 +174,9 @@ a text file with the messages.
 Always check these sources for the current month:
 
 1. **This Week in Svelte** - YouTube show on the Svelte Society channel.
-   Fetch via web_fetch: `https://www.youtube.com/@SvelteSociety/videos`
+   Prefer API script: `bash .agents/skills/svelte-newsletter/fetch-youtube.sh`
+   (requires `YOUTUBE_API_KEY`; see `mcp-setup.md`).
+   Fallback via web_fetch: `https://www.youtube.com/@SvelteSociety/videos`
    List each episode with number and title:
 
    ```
@@ -211,6 +239,10 @@ Before presenting the draft:
 7. Check all copy against `voice-and-tone.md` - no AI-isms, no corporate speak, active voice
 8. Confirm showcase links use canonical destinations and not Reddit/Discord source links unless
    one of the exceptions above applies
+9. If Reddit/Discord/YouTube sources were partially blocked, explicitly list those gaps and ask
+   the user for manual links before claiming the showcase pass is complete
+10. Prefer authenticated/API-backed data sources (Reddit auth + YouTube API key) before using
+   brittle web page scraping
 
 ---
 
