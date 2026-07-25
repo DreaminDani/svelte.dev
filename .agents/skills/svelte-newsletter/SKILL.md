@@ -70,14 +70,50 @@ For each repository listed in `repositories.md`:
    bullet point. Don't just copy the commit message - explain what the feature means for users.
 4. **Add version info** - Bold the package name and version: `**svelte@5.54.0**`
 5. **Link to the PR** - `[#17951](https://github.com/sveltejs/svelte/pull/17951)`
-6. **Cross-reference documentation** - Check if there's a relevant docs page on svelte.dev.
-   The docs live locally at `apps/svelte.dev/content/docs/` with sections:
+6. **Cross-reference documentation** - Add a `[Docs](https://svelte.dev/docs/...)` link
+   that points at the most specific section possible. Do NOT guess the anchor.
 
-- `svelte/` - Svelte compiler, runtime, template syntax
-- `kit/` - SvelteKit framework
-- `cli/` - sv CLI tool
-- `ai/` - AI/MCP tools
-  If a relevant docs page exists, add a `[Docs](https://svelte.dev/docs/...)` link.
+   The docs live locally at `apps/svelte.dev/content/docs/` with sections:
+   - `svelte/` - Svelte compiler, runtime, template syntax
+   - `kit/` - SvelteKit framework
+   - `cli/` - sv CLI tool
+   - `ai/` - AI/MCP tools
+
+   **How to derive a Docs URL (in order of preference):**
+
+   a. **Check the PR diff for docs file changes.** Open `https://github.com/sveltejs/<repo>/pull/<N>/files`
+   and look for any `documentation/docs/**/*.md` changes. The filename (minus the numeric
+   prefix and `.md`) is the URL slug, and any added/changed `##`/`###` heading is the anchor.
+   Example: a change to `documentation/docs/20-core-concepts/70-environment-variables.md` adding
+   `## Explicit environment variables` becomes
+   `https://svelte.dev/docs/kit/environment-variables#Explicit-environment-variables`.
+
+   b. **If the PR has no docs file changes,** grep the local docs for the right header instead
+   of guessing:
+
+   ```
+   grep_search includePattern=apps/svelte.dev/content/docs/kit/**/*.md  query="^## |^### "
+   ```
+
+   Then map filename → slug and pick the closest matching header.
+
+   c. **As a last resort,** check the source code in the PR for hardcoded `svelte.dev/docs/...`
+   URLs (error messages, JSDoc `@see`, etc.) - these are authoritative.
+
+   **Anchor convention on svelte.dev:** headings preserve case, spaces become `-`, and child
+   headings are prefixed with the parent's name. Examples:
+   - `## query` → `#query`
+   - `### Refreshing queries` (under `## query`) → `#query-Refreshing-queries`
+   - `### Multiple submit buttons` (under `## form`) → `#form-Multiple-submit-buttons`
+   - `### precompress` (under `## Options`) → `#Options-precompress`
+
+   **If you cannot find a specific, verified section, omit the Docs link entirely** rather
+   than linking to a guessed anchor or a too-generic page. A missing link is better than a
+   broken or misleading one.
+
+   **PR fetching tip:** GitHub's `/files` pages are huge. Fetch ONE PR at a time and use a
+   targeted query like "documentation/docs file changes, headers added" to keep the diff
+   focused, or rely on `gh pr diff <N> -R sveltejs/<repo> -- '*.md'` in a terminal.
 
 7. **Note breaking changes** - If a feature includes breaking changes, call them out explicitly.
 
@@ -230,7 +266,9 @@ apps/svelte.dev/content/blog/YYYY-MM-01-whats-new-in-svelte-MONTH-YYYY.md
 
 Before presenting the draft:
 
-1. Verify docs links and PR links are well-formed (correct repo, correct PR number)
+1. Verify docs links and PR links are well-formed (correct repo, correct PR number). Each
+   `[Docs](...)` anchor must be one you derived from a PR docs diff, a local docs grep, or
+   an in-source URL - not a guess. If you cannot verify it, drop the Docs link.
 2. Do NOT fetch individual showcase item URLs - leave those for the user to verify
 3. Ensure no duplicate items between sections
 4. Check that version numbers are accurate
