@@ -15,16 +15,27 @@ source content.
 
 ### What does NOT qualify
 
-- Starter templates, boilerplates, or scaffolding tools (those go in Libraries)
+- Starter templates, boilerplates, or scaffolding tools (those go in Libraries, if at all - see below)
+- Full-stack starter frameworks, self-hostable app platforms or CMS tools (these are Libraries/Dev Tools, not Apps - Apps are things end users open to do a specific task)
 - Projects that are just "Hello World" or tutorial follow-alongs
 - Sites that are down or broken
 - Duplicate submissions from previous newsletters
 
+### Categorization examples
+
+- "Ecommerce starter you can deploy" → Libraries (Dev Tools)
+- "Self-hostable app platform" → Libraries (Dev Tools)
+- "CMS you install to edit your own site" → Libraries (UI/Dev Tools)
+- "Recipe keeper you actually use" → Apps & Sites
+- "Browser game" → Apps & Sites
+- "Interactive editorial piece" → Apps & Sites
+
+When in doubt, ask: is this something a Svelte developer would install/deploy, or something an end user would open? Developer-facing → Libraries. End-user-facing → Apps & Sites.
+
 ### Formatting
 
 Prefer the real/deployed URL over the GitHub URL. If both exist, link the name to the real
-URL and put GitHub in parentheses at the end. If only a GitHub URL exists, use that as the
-main link. Reddit links should only be used as a last resort when no other URL is available.
+URL and put GitHub in parentheses at the end **only if the site does not already have a prominent GitHub link in its header/nav**. If the deployed site already shows a GitHub link at the top, don't duplicate it in the description - the parenthetical is noise. If only a GitHub URL exists, use that as the main link. Reddit links should only be used as a last resort when no other URL is available.
 
 Discord links follow the same rule as Reddit links - treat them as source links, not primary
 showcase destinations. Use Discord links only when no better public URL exists, or when the
@@ -188,8 +199,11 @@ For fewer than 10 items, a flat list without headers is fine, but still group si
 together - put all the UI component libraries next to each other, all the state management
 tools next to each other, etc.
 
-**Starter kits and boilerplates:** Generally avoid including these - there are just too many.
-Only include one if it's genuinely notable or doing something unusual.
+**Starter kits and boilerplates:** Skip by default. Boilerplates are low-effort content and
+there are too many of them. Only include one if the pattern being demonstrated is genuinely
+novel (not just "Svelte + $CLOUD_PROVIDER") or if the project has demonstrable adoption.
+When in doubt, leave it out - the user would rather have a shorter newsletter than one
+padded with templates.
 
 ---
 

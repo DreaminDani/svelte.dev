@@ -130,6 +130,18 @@ or a learning resource, default to Apps & Sites. The user can move it later.
 showcase. If an app has a companion blog post, list them separately - the app in Apps & Sites
 and the blog post in Learning Resources.
 
+**Don't over-mention the Svelte version.** Svelte 5 (and eventually Svelte 6) is the
+default - readers assume new projects use the current major. Only name-check the version
+when:
+
+- The item is a major rewrite/migration from an older version ("shipped its Svelte 5
+  rewrite" adds no info if the library is new)
+- The version is literally part of the title of an article or video
+- The point of the item is compatibility with a specific version (e.g. "now supports
+  Svelte 5 runes" for a previously-featured library)
+
+Otherwise, describe what the thing does, not which version of Svelte it was built with.
+
 Good:
 
 ```
